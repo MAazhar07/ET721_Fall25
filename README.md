@@ -1,0 +1,1 @@
+This practicum builds on prior programming knowledge, emphasizing data structures, loops, conditionals, OOP, and more. Through hands-on projects and teamwork, students apply concepts to solve real-world problems, gaining practical skills and fostering innovation and exploration in tech.
