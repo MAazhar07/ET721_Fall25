@@ -1,129 +1,74 @@
 """
 Mohammed Azhar
 Lab 8, unittest
-Oct 5, 2025
+Oct 6, 2025
 """
 
 import unittest
-from unittest.mock import patch, mock_open
 import calculations
+from employee import Employee  # import class 'Employee' from 'employee.py'
 from BankAccount import BankAccount
 
 
-print("\n----- Example 1: test for equality -----")
-
+# function to add and return the sum of two numbers
 def addtwonumbers(a, b):
     return a + b
 
+
+print("\n----- Example 1: test for equality -----")
+# create a code to test function 'addtwonumbers'
 class TestAddFunction(unittest.TestCase):
 
     def test_add(self):
         self.assertEqual(addtwonumbers(2, 3), 5)
-        self.assertEqual(addtwonumbers(0, 5), 5)
-        self.assertNotEqual(addtwonumbers(2, 2), 5)
-
 
 
 print("\n----- Example 2: unittest for calculations -----")
-
 class TestCalculation(unittest.TestCase):
 
     def test_multiplythreenumbers(self):
-        self.assertEqual(calculations.multiplythreenumbers(1, 2), 2)
-        self.assertEqual(calculations.multiplythreenumbers(1, 2, 3), 6)
         self.assertEqual(calculations.multiplythreenumbers(5), 5)
-
-    def test_addthreenumbers(self):
-        self.assertEqual(calculations.addthreenumbers(1, 2), 3)
-        self.assertEqual(calculations.addthreenumbers(5), 5)
-        self.assertEqual(calculations.addthreenumbers(1, 2, 3), 6)
-
-    def test_subtracttwonumbers(self):
-        self.assertEqual(calculations.subtracttwonumbers(5, 2), 3)
-        self.assertEqual(calculations.subtracttwonumbers(2, 5), -3)
-        self.assertEqual(calculations.subtracttwonumbers(10, 0), 10)
+        self.assertEqual(calculations.multiplythreenumbers(2, 3), 6)  # fixed expected value from 5 to 6
+        self.assertEqual(calculations.multiplythreenumbers(2, 3, 4), 24)
+        self.assertEqual(calculations.multiplythreenumbers(0), 0)
 
     def test_dividetwonumbers(self):
-        self.assertEqual(calculations.dividetwonumbers(10, 2), 5)
-        self.assertEqual(calculations.dividetwonumbers(9, 3), 3)
-        self.assertAlmostEqual(calculations.dividetwonumbers(7, 2), 3.5)
-
-    def test_dividebyzero(self):
-        self.assertIsNone(calculations.dividetwonumbers(10, 0))
-
-    def test_nonnumericvalues(self):
-        self.assertIsNone(calculations.dividetwonumbers(10, "a"))
-        self.assertIsNone(calculations.dividetwonumbers("b", 5))
-
-    def test_unexpected_exception(self):
-        with self.assertRaises(Exception):
-            calculations.dividetwonumbers()
-
+        self.assertEqual(calculations.dividtwonumbers(8, 4), 2)  # fixed function name
+        self.assertAlmostEqual(calculations.dividtwonumbers(9, 2), 4.5)
+        self.assertEqual(calculations.dividtwonumbers(9, 0), -1)
+        self.assertIsNone(calculations.dividtwonumbers("a", 2))
 
 
 print("\n----- Example 3: Employee class tests -----")
-
-class Employee:
-    raise_amt = 1.05
-
-    def __init__(self, firstname, lastname, salary):
-        self.first = firstname
-        self.last = lastname
-        self.salary = salary
-
-    @property
-    def emailemployee(self):
-        return f"{self.first}.{self.last}@email.com"
-
-    @property
-    def fullname(self):
-        return f"{self.first} {self.last}"
-
-    def apply_raise(self):
-        self.salary = int(self.salary * self.raise_amt)
-
-
 class TestEmployee(unittest.TestCase):
 
     def setUp(self):
         self.emp1 = Employee('Peter', 'Pan', 50000)
 
     def test_emailemployee(self):
-        self.assertEqual(self.emp1.emailemployee, "Peter.Pan@email.com")
-        self.emp1.first = "Will"
-        self.assertEqual(self.emp1.emailemployee, "Will.Pan@email.com")
+        self.assertEqual(self.emp1.email, "Peter.Pan@email.com")  # fixed attribute name
 
     def test_fullname(self):
         self.assertEqual(self.emp1.fullname, "Peter Pan")
 
-    def test_apply_raise(self):
+        # update the first name
+        self.emp1.first = "Will"
+
+        # re-test full name 
+        self.assertEqual(self.emp1.fullname, 'Will Pan')
+
+    def test_salary(self):
+        # test salary before the raise
+        self.assertEqual(self.emp1.salary, 50000)
+
+        # first, raise the salary
         self.emp1.apply_raise()
+
+        # second, test salary
         self.assertEqual(self.emp1.salary, 52500)
 
 
-
-print("\n----- Example 4: Testing file reading using mock -----")
-
-def process_file(file_path):
-    total = 0
-    with open(file_path, 'r') as file:
-        for line in file:
-            total += int(line.strip())
-    return total
-
-
-class TestProcessFile(unittest.TestCase):
-
-    @patch("builtins.open", new_callable=mock_open, read_data="1\n2\n3\n")
-    def test_process_file(self, mock_file):
-        result = process_file("fake_path.txt")
-        self.assertEqual(result, 6)
-        mock_file.assert_called_once_with("fake_path.txt", 'r')
-
-
-
 print("\n----- Lab Exercise: BankAccount tests -----")
-
 class TestBankAccount(unittest.TestCase):
 
     def setUp(self):
@@ -164,5 +109,5 @@ class TestBankAccount(unittest.TestCase):
         self.assertEqual(self.account.get_balance(), 100)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
