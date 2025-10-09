@@ -33,6 +33,7 @@ class TestMainFunction(unittest.TestCase):
     def test_invalid_datatype_input(self, mock_stdout, mock_input):
         studentsgrade.main()
         output = mock_stdout.getvalue()
+    
         # check if error message for invalid input is shown
         self.assertIn("Invalid input. Please enter a positive number.", output)
         self.assertIn("Invalid input! Enter a numerical value.", output)
