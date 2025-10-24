@@ -4,7 +4,7 @@ Lab, 7 accessing data in a file (functions)
 Sep 29, 2025
 """
 def testing():
-    print("FATIMA NADEEM")
+    print("Mohammed Azhar")
 
 # EXAMPLE 1: read file
 def read_data(filename):
