@@ -5,6 +5,7 @@ Sep 29, 2025
 """
 
 from lab7_function import *
+
 testing()
 print("\n ---- example 1: reading file -----")
 read_data("phrase.txt")
@@ -34,10 +35,10 @@ count_hotmail = email_read("user_email.txt", "@hotmail")
 with open("reportemail.txt", "w") as report:
     # Write the Gmail count into the file
     report.write(f"gmail = {count_gmail}\n")
-    
+
     # Write the Yahoo count into the file
     report.write(f"yahoo = {count_yahoo}\n")
-    
+
     # Write the Hotmail count into the file
     report.write(f"hotmail = {count_hotmail}\n")
 

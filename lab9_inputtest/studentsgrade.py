@@ -1,10 +1,11 @@
 """
 Mohammed Azhar
 Oct 8, 2025
-Lab 9, test input and output 
+Lab 9, test input and output
 """
 
 # function to collect students' grade and return the average of the grades
+
 
 def main():
     # collect the number of students
@@ -17,9 +18,9 @@ def main():
                 break
         except ValueError:
             print("Invalid input. Please enter a positive number.")
-            
+
     # collect the grades for each student
-    total_sum_grades = 0 
+    total_sum_grades = 0
     for i in range(num_students):
         while True:
             try:
@@ -27,7 +28,7 @@ def main():
                 if 0 <= grade <= 100:
                     total_sum_grades += grade
                     break
-                else: 
+                else:
                     print("Invalid input. Enter a grade between 0 and 100.")
             except ValueError:
                 print("Invalid input! Enter a numerical value.")
@@ -35,7 +36,8 @@ def main():
     # calculate average grade
     average = total_sum_grades / num_students
     # print result
-    print(f"The class average is {average:.2f}") 
+    print(f"The class average is {average:.2f}")
 
-if __name__ == "__main__":  
+
+if __name__ == "__main__":
     main()

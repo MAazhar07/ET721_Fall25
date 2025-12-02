@@ -16,6 +16,8 @@ def addtwonumbers(a, b):
 
 
 print("\n----- Example 1: test for equality -----")
+
+
 # create a code to test function 'addtwonumbers'
 class TestAddFunction(unittest.TestCase):
 
@@ -24,11 +26,15 @@ class TestAddFunction(unittest.TestCase):
 
 
 print("\n----- Example 2: unittest for calculations -----")
+
+
 class TestCalculation(unittest.TestCase):
 
     def test_multiplythreenumbers(self):
         self.assertEqual(calculations.multiplythreenumbers(5), 5)
-        self.assertEqual(calculations.multiplythreenumbers(2, 3), 6)  # fixed expected value from 5 to 6
+        self.assertEqual(
+            calculations.multiplythreenumbers(2, 3), 6
+        )  # fixed expected value from 5 to 6
         self.assertEqual(calculations.multiplythreenumbers(2, 3, 4), 24)
         self.assertEqual(calculations.multiplythreenumbers(0), 0)
 
@@ -40,10 +46,12 @@ class TestCalculation(unittest.TestCase):
 
 
 print("\n----- Example 3: Employee class tests -----")
+
+
 class TestEmployee(unittest.TestCase):
 
     def setUp(self):
-        self.emp1 = Employee('Peter', 'Pan', 50000)
+        self.emp1 = Employee("Peter", "Pan", 50000)
 
     def test_emailemployee(self):
         self.assertEqual(self.emp1.email, "Peter.Pan@email.com")  # fixed attribute name
@@ -54,8 +62,8 @@ class TestEmployee(unittest.TestCase):
         # update the first name
         self.emp1.first = "Will"
 
-        # re-test full name 
-        self.assertEqual(self.emp1.fullname, 'Will Pan')
+        # re-test full name
+        self.assertEqual(self.emp1.fullname, "Will Pan")
 
     def test_salary(self):
         # test salary before the raise
@@ -69,6 +77,8 @@ class TestEmployee(unittest.TestCase):
 
 
 print("\n----- Lab Exercise: BankAccount tests -----")
+
+
 class TestBankAccount(unittest.TestCase):
 
     def setUp(self):

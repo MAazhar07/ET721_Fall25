@@ -1,31 +1,32 @@
 # Improved Connect 4 Game
 # Mohammed Azhar
 
+
 class Connect4:
     ROWS = 6
     COLS = 7
 
     def __init__(self):
-        self.board = [[' ' for _ in range(self.COLS)] for _ in range(self.ROWS)]
-        self.current_player = 'X'
+        self.board = [[" " for _ in range(self.COLS)] for _ in range(self.ROWS)]
+        self.current_player = "X"
 
     def switch_player(self):
-        self.current_player = 'O' if self.current_player == 'X' else 'X'
+        self.current_player = "O" if self.current_player == "X" else "X"
 
     def print_board(self):
         print("\nCurrent Board:")
         for row in self.board:
-            print('|', end='')
+            print("|", end="")
             for cell in row:
-                if cell == 'X':
-                    print('\033[91mX\033[0m', end='|')  # Red for X
-                elif cell == 'O':
-                    print('\033[94mO\033[0m', end='|')  # Blue for O
+                if cell == "X":
+                    print("\033[91mX\033[0m", end="|")  # Red for X
+                elif cell == "O":
+                    print("\033[94mO\033[0m", end="|")  # Blue for O
                 else:
-                    print(' ', end='|')
+                    print(" ", end="|")
             print()
-        print('---------------')
-        print(' 1 2 3 4 5 6 7')
+        print("---------------")
+        print(" 1 2 3 4 5 6 7")
 
     def drop_chip(self, column):
         """Drop a chip in the chosen column (1-7)."""
@@ -33,7 +34,7 @@ class Connect4:
             return False
 
         for row in range(self.ROWS - 1, -1, -1):
-            if self.board[row][column - 1] == ' ':
+            if self.board[row][column - 1] == " ":
                 self.board[row][column - 1] = self.current_player
                 return True
         return False  # Column full
@@ -68,7 +69,7 @@ class Connect4:
 
     def is_full(self):
         """Check if the board is full."""
-        return all(self.board[0][col] != ' ' for col in range(self.COLS))
+        return all(self.board[0][col] != " " for col in range(self.COLS))
 
     def play_game(self):
         """Main game loop."""
@@ -100,42 +101,42 @@ class Connect4:
             self.switch_player()
 
 
-if __name__ == "__main__": 
+if __name__ == "__main__":
     game = Connect4()
-    game.print_board()  
+    game.print_board()
     print("Initial board:")
     game.print_board()
     print("\nTesting drop_piece():")
-    game.drop_piece(0, 'X')  # Player X in column 0
+    game.drop_piece(0, "X")  # Player X in column 0
     game.print_board()
-    game.drop_piece(1, 'O')  # Player O in column 1
+    game.drop_piece(1, "O")  # Player O in column 1
     game.print_board()
     print("\nTesting switch_player():")
     print(f"Current player before switch: {game.current_player}")
     game.switch_player()
     print(f"Current player after switch: {game.current_player}")
     print("\nTesting with custom symbols:")
-    game.current_player = 'A'
+    game.current_player = "A"
     game.drop_chip(3)
     game.print_board()
-    game.current_player = 'B'
+    game.current_player = "B"
     game.drop_chip(4)
     game.print_board()
     # Testing board size modification
     print("\nTesting board size change (8x9):")
     game.ROWS = 8
     game.COLS = 9
-    game.board = [[' ' for _ in range(game.COLS)] for _ in range(game.ROWS)]
+    game.board = [[" " for _ in range(game.COLS)] for _ in range(game.ROWS)]
     game.print_board()
     print("\nTesting check_win():")
     game = Connect4()
-    game.drop_chip(1)  
-    game.drop_chip(1)  
-    game.drop_chip(2) 
-    game.drop_chip(2)  
-    game.drop_chip(3) 
-    game.drop_chip(3)  
-    game.drop_chip(4)  
+    game.drop_chip(1)
+    game.drop_chip(1)
+    game.drop_chip(2)
+    game.drop_chip(2)
+    game.drop_chip(3)
+    game.drop_chip(3)
+    game.drop_chip(4)
     game.print_board()
     print(f"X wins? {game.check_win('X')}")
     print(f"O wins? {game.check_win('O')}")

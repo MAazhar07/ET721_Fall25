@@ -1,24 +1,20 @@
 """
 Mohammed Azhar
-lab4, dictonary and functions 
+lab4, dictonary and functions
 Sep 10, 2025
 """
 
 print("----- Example 1: dictionary -----")
-contacts = {
-"Bill" : "718-111-2222",
-"Martha": "646-000-3333",
-"Peter" : "212-000-1111"
-}
+contacts = {"Bill": "718-111-2222", "Martha": "646-000-3333", "Peter": "212-000-1111"}
 print(contacts)
 
-user1 = contacts ["Martha"]
+user1 = contacts["Martha"]
 print(f"user's phone number = {user1}")
 
 contacts["Anna"] = "646-222-3333"
 print(contacts)
 
-contacts ["Peter"] = "800-000-0000"
+contacts["Peter"] = "800-000-0000"
 print(contacts)
 
 print("----- Example 2: loop through a dictionary -----")
@@ -26,13 +22,13 @@ for i in contacts:
     print(i)
 
 for i in contacts:
-        print(contacts[i])
+    print(contacts[i])
 
 for i in contacts:
-      print(f"{i}= {contacts [i]}")
+    print(f"{i}= {contacts [i]}")
 
-print ("----- Example 3: lengt of a dictionary ------")
-print(f"Dictionary has {len(contacts)} user") 
+print("----- Example 3: lengt of a dictionary ------")
+print(f"Dictionary has {len(contacts)} user")
 
 print("----- Example 4: copy a dictionary -----")
 copy_contact1 = contacts.copy()
@@ -60,12 +56,11 @@ list_phrase = phrase.split()
 word_count_dict = {}
 for word in list_phrase:
     if word in word_count_dict:
-            word_count_dict[word] += 1 
+        word_count_dict[word] += 1
     else:
-         word_count_dict[word] = 1 
+        word_count_dict[word] = 1
 for word in word_count_dict:
-       print(f"{word}' appears {word_count_dict[word]}") 
-
+    print(f"{word}' appears {word_count_dict[word]}")
 
 
 print("----- EXERCISE -----")
@@ -76,7 +71,7 @@ users = [
     "martha@gmail.com",
     "cassie@yahoo.com",
     "Josue@hotmail.com",
-    "John@hotmail.com"
+    "John@hotmail.com",
 ]
 
 provider_count = {}

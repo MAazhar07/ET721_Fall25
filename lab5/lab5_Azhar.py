@@ -35,7 +35,9 @@ s2 = 3
 hyp = hypotenuse(s1, s2)
 print(f"The hypotenuse is {hyp}")
 
-print("\n----- Example 3: function to check if a number is positive, negative, or zero. -----")
+print(
+    "\n----- Example 3: function to check if a number is positive, negative, or zero. -----"
+)
 c = check_number(-3)
 print(f"the number is {c}")
 c = check_number(5)
@@ -45,7 +47,7 @@ print(f"the number is {c}")
 
 print("\n----- Example 4: function in a list -----")
 grades = [50, 60, 85, 93, 72, 98]
-avg = check_grades (grades)
+avg = check_grades(grades)
 print(f"Did I pass the class? {check_pass(avg)}")
 grades = [50, 60, 30, 50]
 print(f"Did I pass the class? {check_pass(check_grades(grades))}")
@@ -54,7 +56,3 @@ print(f"Did I pass the class? {check_pass(check_grades(grades))}")
 num = gen_rand(1, 10)
 print("Generated number:", num)
 check_guess(num)
-
-
-
-
