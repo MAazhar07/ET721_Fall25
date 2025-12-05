@@ -1,0 +1,53 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 15, Mohammed Azhar</title>
+    <link rel="stylesheet" href="{% static 'doliststyle.css' %}">
+</head>
+<body>
+    <main class="maincontainer">
+        <h1 class="apptitle">To do list by Mohammed Azhar</h1>
+
+        <form class="dolistform" action="{% url 'add' %}" method="post" role="form">
+            {% csrf_token %}
+            <section class="formgroup">
+                <label for="task">What to do? ...</label>
+                {{form.text}}
+                <input type="text" id="task" class="todo_text" placeholder="Type your task"/>
+                <button class="btnaddlist">Add to list</button>
+            </section>
+            
+            <section class="formgroup">
+                <button class="btndeleteeach">DELETE COMPELTED</button>
+                <button class="btndeleteall">DELETE ALL</button>
+            </section>
+                
+            <section class="formgroup">
+                <h3>Added to the list:</h3>
+
+                <!-- LIST DISPLAY -->
+                <ul class="dolist_list">
+                    <!-- sync from database -->
+                    {% for task in todo_tasks %}
+                    {% if task.completed%}
+                        <li class="listitem completed"> {{task.text}}</li>
+                        {%else%}
+                        <a href="#" class="linkitem"><li class="listitem"> {{task.text}}</li></a>
+                    {%endif%}
+                    {% endfor %}
+
+                </ul>
+                
+            </section>
+        </form>
+
+
+
+
+    </main>
+
+</body>
+</html>
