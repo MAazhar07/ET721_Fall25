@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 16, Image upload app </title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css'%}">
+</head>
+<body>
+    <main class="maincontainer">
+        <h1 class="title">Lab 16, image uploader by Mohammed Azhar</h1>
+        <section>
+            <nav><a class="upload_img_btn" href="{% url 'add_post' %}"> Upload images</a></nav>
+        </section>
+
+        <section class="albumcontainer">
+            {% for post in object_list %}
+            <div class="card">
+                <div class="card-img">
+                    <img class="card-img" src="{{post.image.url}}" alt="image of {{post.title}}"/>
+                </div>
+            </div>
+            {% endfor %}
+        </section>
+    </main>
+</body>
+</html>

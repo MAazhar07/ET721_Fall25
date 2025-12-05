@@ -1,0 +1,70 @@
+*{box-sizing: border-box;}
+img{width: 100%; display: block;}
+
+/* home.html */
+.maincontainer{
+    width: 90%;
+    margin: 5rem auto;
+    padding: 2rem;
+    border: solid lightblue 1px;
+}
+.title{
+    text-align: center;
+}
+.upload_img_btn{
+    background-color: darkblue;
+    padding: 0.5rem 2rem;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+}
+.upload_img_btn:hover{
+    background-color: crimson;
+    font-weight: bolder;
+    box-shadow: 0px 0px 3px 1px grey;
+}
+.albumcontainer{
+    margin-top: 5rem;   
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.card{
+    width: 45%;
+    padding: 2rem;
+    background-color: lightcyan;
+    box-shadow: 1px 1px 5px lightgrey;
+}
+.card-title{
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+}
+.card-img{
+    border: ridge 2px darkblue;
+    border-radius: 10px;
+}
+
+/* post.html */
+.postitle{
+    text-align: center;
+    color: darkblue;
+}
+.form_post{
+    width: 500px;
+    margin: 3rem auto;
+    padding: 2rem;
+    box-shadow: 1px 1px 3px grey;
+    border-radius: 10px;
+}
+.btnsubmit{
+    color: whitesmoke;
+    background-color: darkblue;
+    padding: 0.5rem 2rem;
+    border: none;
+    border-radius: 5px;
+}
+.btnsubmit:hover{
+    background-color: crimson;
+    font-weight: bolder;
+    box-shadow: 0px 0px 3px 1px grey;
+}
