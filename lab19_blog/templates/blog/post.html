@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}All Posts{% endblock %}
+
+{% block content %}
+    <h2>Blog Posts</h2>
+    {% if posts %}
+        <ul>
+        {% for post in posts %}
+            <li>
+                <h3><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h3>
+                <small>Posted on {{ post.created_at|date:"M d, Y" }}</small>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No posts yet. <a href="{% url 'post_create' %}">Create the first one!</a></p>
+    {% endif %}
+{% endblock %}
