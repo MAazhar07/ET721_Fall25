@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}My Blog Posts{% endblock %}
+{% block content %}
+<div class="card">
+    <h1>My Blog Posts</h1>
+    <p><a href="{% url 'post_create' %}">Create New Post</a></p>
+    
+    <ul>
+        {% for post in posts %}
+            <li class="card">
+                <h3><a href="{% url 'post_detail' post.id %}">{{ post.title }}</a></h3>
+                <p>Posted on {{ post.created_at|date:"M d, Y" }}</p>
+                <p>Likes: {{ post.total_likes }}</p>
+            </li>
+        {% empty %}
+            <li class="card">No posts yet!</li>
+        {% endfor %}
+    </ul>
+    
+    <p><a href="{% url 'home' %}">Home</a> | <a href="{% url 'logout' %}">Logout</a></p>
+</div>
+{% endblock %}

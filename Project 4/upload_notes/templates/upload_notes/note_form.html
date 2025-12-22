@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Upload Note{% endblock %}
+{% block content %}
+<div class="card">
+    <h1>Upload New Note Image</h1>
+    
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Upload</button>
+    </form>
+    
+    <p><a href="{% url 'note_list' %}">Back to Notes</a> | <a href="{% url 'home' %}">Home</a></p>
+</div>
+{% endblock %}
